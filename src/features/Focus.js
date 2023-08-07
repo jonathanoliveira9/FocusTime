@@ -13,6 +13,7 @@ const styles = StyleSheet.create({
     flex: 1
   },
   text:{
-    color: colors.white
+    color: colors.white,
+    padding: 10
   }
 })
