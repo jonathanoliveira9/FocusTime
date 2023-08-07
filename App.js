@@ -1,10 +1,10 @@
-import { StyleSheet , Platform, SafeAreaView, StatusBar } from 'react-native';
+import { Text, StyleSheet, View , Platform, SafeAreaView, StatusBar } from 'react-native';
 import { colors } from './src/utils/colors'
-import { Focus  } from './src/features/Focus';
+
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
-      <Focus/>
+      <Text style={styles.text}>Hello World</Text>
     </SafeAreaView>
   );
 }
@@ -15,4 +15,7 @@ const styles = StyleSheet.create({
     paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
     backgroundColor: colors.darkBlue
   },
+  text: {
+    color: colors.white
+  }
 });
