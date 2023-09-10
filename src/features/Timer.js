@@ -3,6 +3,7 @@ import { View, StyleSheet, Text, Vibration } from 'react-native'
 import { ProgressBar } from 'react-native-paper';
 import { Countdown } from '../components/Countdown';
 import { RoundedButton } from '../components/RoundedButton';
+import { useKeepAwake } from 'expo-keep-awake';
 import { Timing } from './Timing';
 import { spacing } from '../utils/sizes';
 import { colors } from '../utils/colors';
@@ -18,6 +19,7 @@ const PATTERN = [
 ];
 
 export const Timer = ({ focusSubject, clearSubject }) => {
+  useKeepAwake();
   const [isStarted, setIsStarted] = useState(false);
   const [progress, setProgress] = useState(1);
   const [minutes, setMinutes] = useState(0.1);
