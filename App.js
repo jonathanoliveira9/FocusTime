@@ -9,7 +9,9 @@ export default function App() {
   return (
     <SafeAreaView style={styles.container}>
       {!currentSubject ? (
-        <Focus addSubject={setCurrentSubject}/>
+        <Focus
+          addSubject={setCurrentSubject}
+          clearSubject={ () => setCurrentSubject(null)}/>
         ) : (
           <Timer
            focusSubject={currentSubject}
