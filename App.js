@@ -15,11 +15,12 @@ export default function App() {
           <Focus addSubject={setCurrentSubject}/>
           <FocusHistory history={history}/>
         </>
-        
         ) : (
           <Timer
            focusSubject={currentSubject}
-           onTimerEnd={() => {}}
+           onTimerEnd={(subject) => {
+            setHistory([...history, subject])
+           }}
            clearSubject={() => {setCurrentSubject(null)}}
           ></Timer>
       )}
