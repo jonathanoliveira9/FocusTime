@@ -3,20 +3,24 @@ import { StyleSheet , Platform, SafeAreaView, StatusBar, View, Text } from 'reac
 import { colors } from './src/utils/colors'
 import { Focus  } from './src/features/Focus';
 import { Timer } from './src/features/Timer';
+import { FocusHistory } from './src/features/FocusHistory';
 
 export default function App() {
-  const [currentSubject, setCurrentSubject] = React.useState(null)
+  const [currentSubject, setCurrentSubject] = React.useState()
+  const [history, setHistory] = useState(['temp feature focused']);
   return (
     <SafeAreaView style={styles.container}>
       {!currentSubject ? (
-        <Focus
-          addSubject={setCurrentSubject}
-          clearSubject={ () => setCurrentSubject(null)}/>
+        <>
+          <Focus addSubject={setCurrentSubject}/>
+          <FocusHistory history={history}/>
+        </>
+        
         ) : (
           <Timer
            focusSubject={currentSubject}
-           onTimerEnd={() => { }}
-           clearSubject={() => { }}
+           onTimerEnd={() => {}}
+           clearSubject={() => {setCurrentSubject(null)}}
           ></Timer>
       )}
     </SafeAreaView>
